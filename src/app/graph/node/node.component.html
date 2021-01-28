@@ -1,0 +1,26 @@
+<ng-content>
+
+</ng-content>
+<svg:g
+  (click)="onNodeClick($event)"
+  (dblclick)="onNodeClick($event)"
+  class="node"
+>
+  <ng-container [ngSwitch]="node?.type">
+      <svg:text *ngSwitchCase="NodeType.A">A</svg:text>
+      <svg:text *ngSwitchCase="NodeType.B">B</svg:text>
+      <svg:text *ngSwitchCase="NodeType.C">C</svg:text>
+    </ng-container>
+  <svg:rect
+    [attr.width]="node.dimension.width"
+    [attr.height]="node.dimension.height"
+    [attr.fill]="node.data.color"
+  />
+  <svg:text
+    alignment-baseline="central"
+    [attr.x]="10"
+    [attr.y]="node.dimension.height / 2"
+  >
+    {{ node.label }}
+  </svg:text>
+</svg:g>
