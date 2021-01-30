@@ -1,8 +1,10 @@
-import { Edge } from "@swimlane/ngx-graph";
-import { TypedNode } from "./node.model";
+import { ClusterNode, Edge } from "@swimlane/ngx-graph";
+import { ExpandableEdge } from "./edge.model";
+import { ExpandableNode } from "./node.model";
 
 
 export interface MapSchema {
-	links: Edge[];
-	nodes: TypedNode[];
+	links: ExpandableEdge[];
+	nodes: ExpandableNode[];
+	clusters: ClusterNode[];
 }

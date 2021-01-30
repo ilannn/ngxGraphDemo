@@ -4,13 +4,7 @@
   [links]="mapState.links"
   [nodes]="mapState.nodes"
   [autoCenter]="true"
-  [clusters]="[
-    {
-      id: 'third',
-      label: 'Cluster node',
-      childNodeIds: ['c1', 'c2']
-    }
-  ]"
+  [clusters]="mapState.clusters"
   layout="dagreCluster"
 >
   <ng-template #defsTemplate>
@@ -22,8 +16,6 @@
   <ng-template #clusterTemplate let-cluster>
     <svg:g class="node cluster">
       <svg:rect
-        rx="5"
-        ry="5"
         [attr.width]="cluster.dimension.width"
         [attr.height]="cluster.dimension.height"
         [attr.fill]="cluster.data.color"
@@ -32,10 +24,7 @@
   </ng-template>
 
   <ng-template #nodeTemplate let-node>
-    <svg:g app-node [node]="node"></svg:g>
-    <!-- <svg:text alignment-baseline="central" [attr.x]="10" [attr.y]="node.dimension.height / 2">
-      {{node.label}}
-    </svg:text> -->
+    <svg:g app-node [node]="node" (click)="onNodeClicked(node)"></svg:g>
   </ng-template>
 
   <ng-template #linkTemplate let-link>

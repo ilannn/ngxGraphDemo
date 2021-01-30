@@ -6,13 +6,11 @@ export enum NodeType {
 	C,
 }
 
-export class TypedNode implements Node {
-	id: string;
-	position?: NodePosition;
-	dimension?: NodeDimension;
-	transform?: string;
-	label?: string;
-	data?: any;
-	meta?: any;
+export interface TypedNode extends Node {
 	type?: NodeType;
+}
+
+
+export interface ExpandableNode extends TypedNode {
+	meta?: { children: TypedNode[] };
 }
