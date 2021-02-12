@@ -16,11 +16,11 @@ export class NodeComponent implements OnInit {
   }
 
   onNodeSelect($event) {
-    console.log($event);
+    // console.log($event);
   }
 
   onNodeClick($event) {
-    console.log($event);
+    // console.log($event);
   }
 
 }

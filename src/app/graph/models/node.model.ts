@@ -12,5 +12,5 @@ export interface TypedNode extends Node {
 
 
 export interface ExpandableNode extends TypedNode {
-	meta?: { children: TypedNode[] };
+	meta?: { children: TypedNode[], open?: boolean };
 }
